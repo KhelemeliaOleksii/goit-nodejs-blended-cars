@@ -1,5 +1,6 @@
 // const Cat = mongoose.model('Cat', { name: String });
 const { model, Schema } = require('mongoose');
+
 //manufacturer mersedes
 //title gls
 //year 2022
@@ -12,6 +13,11 @@ const carSchema = Schema({
     year: Number,
     color: String,
     price: Number,
+    user: {
+        type: Schema.Types.ObjectId,
+        required: true,
+        ref: 'user',
+    }
 }, {
     timestamps: true,
     versionKey: false,

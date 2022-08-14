@@ -15,7 +15,7 @@ class Cars {
             res.status(400);
             throw new Error('Miss manufacturer field');
         }
-        const car = await repositoryCars.save(req.body);
+        const car = await repositoryCars.save(req.body, req.user._id);
         res.status(201).json({
             message: "Success",
             code: 201,
@@ -28,7 +28,7 @@ class Cars {
 
     async getAll(req, res) {
         try {
-            const cars = await repositoryCars.getAll();
+            const cars = await repositoryCars.getAll(req.user._id);
             res.status(200).json({
                 message: "Success",
                 code: 200,

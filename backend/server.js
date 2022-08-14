@@ -13,7 +13,7 @@ app.use(express.urlencoded({
 }));
 
 app.use('/api/v1', require('./routes/carsRoutes'));
-
+app.use('/', require('./routes/usersRoutes'));
 // connectDB();
 (async () => { await connectDB() })();
 
